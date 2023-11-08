@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asterisk Logo</title>
+    <style>
+        .logo {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .line {
+            width: 7px;
+            height: 70px;
+            background-color: #000000; 
+            transform: rotate(45deg);
+            position: absolute;
+            border-radius: 30%;
+        }
+
+        .line:nth-child(2) {
+            transform: rotate(-45deg);
+        }
+
+        .line:nth-child(3) {
+            transform: rotate(90deg);
+        }
+
+        .line:nth-child(4) {
+            transform: rotate(-90deg);
+        }
+        .line:nth-child(5) {
+            transform: rotate(0deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+</body>
+</html>

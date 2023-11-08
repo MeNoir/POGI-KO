@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Picker with Save Button</title>
+</head>
+<body>
+    <input type="color" id="colorPicker">
+    <button id="saveButton">Save</button>
+    <div id="selectedColor">Selected Color: </div>
+    <input type="range" id="fontSizeRange" min="10" max="100" step="1" value="16">
+  <span id="fontSizeValue" contenteditable= "true">16</span>px
+
+  <p id="text">This is a sample text with a changing font size.</p>
+
+
+    <script>
+        const input = document.querySelector("#colorPicker");
+        const selectedColorDisplay = document.querySelector("#selectedColor");
+        const saveButton = document.querySelector("#saveButton");
+
+        function updateColors(selectedColor) {
+            document.body.style.backgroundColor = selectedColor;
+
+            const rgb = parseInt(selectedColor.slice(1), 16);
+            const r = (rgb >> 16) & 255;
+            const g = (rgb >> 8) & 255;
+            const b = rgb & 255;
+            const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+
+            if (brightness > 128) {
+                document.body.style.color = "black";
+                document.body.style.color = "black";
+            } else {
+                document.body.style.color = "white";
+            }
+
+            selectedColorDisplay.textContent = "Selected Color: " + selectedColor;
+        }
+
+        saveButton.addEventListener("click", () => {
+            const selectedColor = input.value;
+            updateColors(selectedColor);
+            localStorage.setItem("selectedColor", selectedColor);
+        });
+
+        input.addEventListener("input", () => {
+            const selectedColor = input.value;
+            updateColors(selectedColor);
+        });
+
+        const savedColor = localStorage.getItem("selectedColor");
+        if (savedColor) {
+            updateColors(savedColor);
+            input.value = savedColor;
+        }
+
+        const fontSizeRange = document.getElementById("fontSizeRange");
+const fontSizeValue = document.getElementById("fontSizeValue");
+const text = document.getElementById("text");
+
+
+const savedFontSize = localStorage.getItem("fontSize");
+if (savedFontSize) {
+  text.style.fontSize = savedFontSize;
+  fontSizeRange.value = parseInt(savedFontSize, 10);
+  fontSizeValue.textContent = fontSizeRange.value;
+}
+
+fontSizeRange.addEventListener("input", function () {
+  const newSize = fontSizeRange.value + "px";
+  text.style.fontSize = newSize;
+  fontSizeValue.textContent = fontSizeRange.value;
+
+ 
+  localStorage.setItem("fontSize", newSize);
+});
+
+    </script>
+</body>
+</html>
