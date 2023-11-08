@@ -161,9 +161,12 @@ section {
 }
 
 .about-img img {
-  width: 580px;
+  width: 500px;
   max-width: 100%;
   height: auto;
+  border: 3px solid #353549;
+  border-radius: 50%;
+  background-color: #3e44553f;
 }
 
 .about-text h3 {
