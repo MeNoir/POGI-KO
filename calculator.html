@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATOR</title>
+    <style>
+
+        body {
+            background-image: url(/images/calcu.png);
+            background-size: cover;
+            align-items: center;
+            background-repeat: no-repeat;
+        }
+
+        #B{
+            font-family: 'YourCustomFont';
+            font-size: 40px;
+            position: absolute;
+            color: rgb(0, 0, 0);
+            top: 10px;
+            left: 20px;
+            border: 5px solid rgb(51, 244, 105);
+            border-radius: 15px;
+            padding-left: 16px;
+            padding-right: 12px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            transition: background-color 1.5s;
+            cursor:pointer;
+            
+              }
+            
+        #c:hover {
+            background-color: rgb(10, 109, 1);
+            color: rgb(255, 252, 252);
+            border: 5px solid rgba(0, 93, 34, 0.863);
+              }
+
+        #back {
+            font-family: 'YourCustomFont';
+            position: absolute;
+            font-size: 80px;
+            left: 460px;
+        
+    }
+        header{
+            padding: 20px;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+        }
+        .box{
+            background-color: white;
+            padding: 20px;
+            height: 50%;
+            width: 30%;
+        }
+        .textview{
+            font-size: 2em;
+            width: 100%;
+        }
+        .cal-buttons{
+            padding: 5px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            align-items: stretch;
+            gap: 2px;
+            margin-top: 10px;
+        }
+        .cal-buttons button{
+            width: 100%;
+            padding: 20px 2vw;
+        }
+        .cal-buttons .btnequals{
+            grid-row: 4/6;
+            grid-column-start: 4;
+        }
+        .cal-buttons .btnzero{
+            grid-column: span 2;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1><center>CALCULATOR</center></h1>
+    </header>
+
+    <p id="back"></p>
+    <a href="project.html"><p id="B"> BACK </p></a>
+
+    <div class="container">
+        <div class="box">
+            
+            <form action="" name="charlie">
+                <input type="text"  class="textview" name="textview">
+            </form>
+           
+
+            <div class="cal-buttons">
+                <button type="button" onclick="charlie.textview.value=''" value="C">C</button>
+                <button type="button" onclick="backspace()" value="B">B</button>
+                <button type="button" onclick="insert('/')" value="/">/</button>
+                <button type="button" onclick="insert('*')" value="*">*</button>
+        
+                <button type="button" onclick="insert('7')" value="7">7</button>
+                <button type="button" onclick="insert('8')" value="8">8</button>
+                <button type="button" onclick="insert('9')" value="9">9</button>
+                <button type="button" onclick="insert('-')" value="-">-</button>
+
+                <button type="button" onclick="insert('4')" value="4">4</button>
+                <button type="button" onclick="insert('5')" value="5">5</button>
+                <button type="button" onclick="insert('6')" value="6">6</button>
+                <button type="button" onclick="insert('+')" value="+">+</button>
+
+                <button type="button" onclick="insert('1')" value="1">1</button>
+                <button type="button" onclick="insert('2')" value="2">2</button>
+                <button type="button" onclick="insert('3')" value="3">3</button>
+
+                <button type="button" class="btnequals" onclick="equal()" value="=">=</button>
+                <button type="button" class="btnzero" onclick="insert('0')" value="0">0</button>
+                <button type="button" onclick="insert('.')" value=".">.</button>
+
+
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    function insert(num){
+        const inputvalue=document.charlie.textview.value;
+
+        document.charlie.textview.value = inputvalue + num;
+
+    }
+    function backspace(){
+
+        let total=document.charlie.textview.value;
+
+        total = total.slice(0, -1);
+
+        document.charlie.textview.value = total;
+    }
+    function equal(){
+
+        let total=document.charlie.textview.value;
+
+        if(total){
+            total = eval(total);
+            document.charlie.textview.value = total;
+        
+        }else{
+            document.charlie.textview.value = "error"
+        }
+        
+    }
+</script>

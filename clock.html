@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLOCK</title>
+    <style>
+        @import url('httpS://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+        body{
+            background: url(images/clock.gif);
+            color: #fff;
+            width: 100%;
+            background-size: cover;
+        }
+
+        html {
+        font-family: myFont ;
+        font-size: 62.5%;
+        overflow-x: hidden ;
+        }
+        
+        @font-face {
+        font-family: myFont;
+        src: url(stick.ttf.otf);
+        }
+
+
+        .content{
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        #clock{
+          font-weight: 900;
+          font-size: 60px;
+          margin: 0;
+          padding: 0px;
+          -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+          -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+          -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;  
+        }
+
+        @-webkit-keyframes fadeIn {
+            form{
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn{
+            from{
+                opacity: 0;
+            }
+            to{
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content" id="clock" onload="currentTime()"></div>
+    
+<script>
+    function currentTime() {
+        let date = new Date();
+        let hh = date.getHours();
+        let mm = date.getMinutes();
+        let ss = date.getSeconds();
+        let session = "AM";
+
+        if(hh === 0){
+            hh = 12;
+        }
+            if(hh > 12){
+                hh = hh - 12;
+                session = "PM";
+            }
+
+            hh = (hh < 10) ? "0" + hh : hh;
+            mm = (mm < 10) ? "0" + mm : mm;
+            ss = (ss < 10) ? "0" + ss : ss;
+
+            let time = hh + ":" + mm + ":" + ss + " " + session;
+
+            document.getElementById("clock").innerText = time;
+            let t = setTimeout(function()  {currentTime()}, 1000);
+            document.title = hh + ":" + mm + ":" + ss + " " + session;
+        }
+        currentTime();
+    
+</script>
+</body>
+</html>

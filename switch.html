@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>white-black</title>
+    </head>
+    <style>
+        
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .bg-bulb{
+            width: 100;
+            height: 100;
+        }
+        .blackmode{
+
+            object-fit: cover;
+            width: 100%;
+            height: 100vh;
+        }
+
+
+    </style>
+    <body>
+        <div class="bg-bulb">
+            <img id="black" src="img/black.jpg" onclick="light_change()" class="blackmode" alt="">            
+        </div>
+
+    </body>
+</html>
+
+<script>
+    function light_change(){
+        
+        let image = document.getElementById('black');
+
+        if(image.src.includes("black")) {
+            image.src = "img/turning.jpeg";
+
+                //starting bulb
+                setTimeout(() =>  {
+                    image.src = "img/betch.png";
+                }, 2000);
+        } else {
+            image.src = "img/black.jpg";
+        }
+    }
+</script>
