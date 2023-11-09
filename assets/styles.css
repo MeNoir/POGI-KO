@@ -201,7 +201,7 @@ section {
 
 .nigga{
   position: relative;
-  left: 20%;
+  margin-left: 20px;
 }
 
 .center {
@@ -228,6 +228,8 @@ section {
   padding: 60px 35px;
   border-radius: 5px;
   cursor: pointer;
+  justify-content: center;
+
   transition: all .40s;
 }
 
@@ -255,7 +257,9 @@ section {
   box-shadow: 0px 15px 30px 0px rgb(0 0 0 / 70%);
 }
 .row img{
-  width: 50%;
+  width: 100%;
+  position: relative;
+  left: 10%;
 }
 
 .cta {
