@@ -25,7 +25,7 @@
     </style>
     <body>
         <div class="bg-bulb">
-            <img id="black" src="img/black.jpg" onclick="light_change()" class="blackmode" alt="">            
+            <img id="black" src="black.jpg" onclick="light_change()" class="blackmode" alt="">            
         </div>
 
     </body>
@@ -37,14 +37,14 @@
         let image = document.getElementById('black');
 
         if(image.src.includes("black")) {
-            image.src = "img/turning.jpeg";
+            image.src = "turning.jpeg";
 
                 //starting bulb
                 setTimeout(() =>  {
-                    image.src = "img/betch.png";
+                    image.src = "betch.png";
                 }, 2000);
         } else {
-            image.src = "img/black.jpg";
+            image.src = "black.jpg";
         }
     }
 </script>
