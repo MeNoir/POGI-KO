@@ -201,7 +201,8 @@ section {
 
 .main-btn .btn {
   margin-right: 20px;
-  top: 20px;
+  position: relative;
+  top: 100px;
 }
 
 .nigga{
