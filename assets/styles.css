@@ -32,7 +32,7 @@ header {
   z-index: 1000;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; 
   background: var(--bg--color);
   padding: 24px 14%;
   transition: .3s;
@@ -201,6 +201,7 @@ section {
 
 .main-btn .btn {
   margin-right: 20px;
+  top: 100px;
 }
 
 .nigga{
