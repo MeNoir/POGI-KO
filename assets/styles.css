@@ -68,6 +68,10 @@ span {
 }
 
 .navbar a {
+  font-weight: bold;
+}
+
+.navbar a {
   color: var(--text-color);
   font-size: 1rem;
   font-weight: 500;
